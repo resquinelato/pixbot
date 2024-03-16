@@ -11,9 +11,10 @@ from selenium.webdriver.support import expected_conditions as EC
 MNEMONIC = 'security curve swallow few tilt attract donor tuition matter place spoon major'
 PASSWORD = '11111111'
 
-extensao = 'C:/Users/Acer/Documents/Progamacao/botpix/Ronin-Wallet-edge.crx'
+extensao = "C:/Users/Acer/Documents/Progamacao/botpix2/pixbot/Ronin-Wallet.crx"
 
 playFree ='/html/body/div[1]/div[1]/div/a/strong'
+
 conectRonin = '/html/body/div[1]/div/div[3]/div[2]/div[1]/button[2]'
 walletExtension = '/html/body/div[1]/div/div[3]/div[2]/div[1]/div[3]/button[1]'
 nextWalet = '/html/body/section/div[1]/div/div[3]/div/div/button[2]'
