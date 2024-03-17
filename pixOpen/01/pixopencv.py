@@ -3,13 +3,14 @@ import numpy as np
 
 
 #metodo que a foto será tyratada
-haystack_img = cv.imread('palheiro1.png', cv.IMREAD_UNCHANGED)
-needle_img = cv.imread('needle1.png', cv.IMREAD_UNCHANGED)
-haystack_img = cv.imread('palheiro1.png', cv.IMREAD_REDUCED_COLOR_2)
-needle_img = cv.imread('needle1.png', cv.IMREAD_REDUCED_COLOR_2)
+haystack_img = cv.imread('img/palheiro1.png', cv.IMREAD_UNCHANGED)
+needle_img = cv.imread('img/needle1.png', cv.IMREAD_UNCHANGED)
+#haystack_img = cv.imread('img\palheiro1.png', cv.IMREAD_REDUCED_COLOR_2)
+#needle_img = cv.imread('img\needle1.png', cv.IMREAD_REDUCED_COLOR_2)
 
 #método de comparação das imagens
 result = cv.matchTemplate(haystack_img, needle_img, cv.TM_CCOEFF_NORMED)
+
 '''
 cv.imshow('Resultado', result)
 cv.waitKey() #impede o fechamento imediato
@@ -37,8 +38,11 @@ if max_val >= threshold:
     #gera um retanglulo no match encontrado
     cv.rectangle(haystack_img, top_left, bottom_right, 
                 color=(0, 255, 0), thickness=2, lineType=cv.LINE_4)
-
+    
+    '''
     cv.imshow('Resultado', haystack_img)
     cv.waitKey() #impede o fechamento imediato
+    '''
+    cv.imwrite('Resultado.png', haystack_img)
 else:
     print('Needle not found.')
