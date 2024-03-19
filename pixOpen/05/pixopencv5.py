@@ -24,7 +24,7 @@ while(True):
 
 
     #cv.imshow('Computer Vision', screenshot)
-    findClickPositions('', screenshot, 0.25 , debug_mode=None)
+    findClickPositions('img/dir.png', screenshot, 0.5 , 'rectangles')
 
     # msotra o FPS de execução (pode ser melhorado)
     print('FPS {}'.format(1 / (time() - loop_time)))

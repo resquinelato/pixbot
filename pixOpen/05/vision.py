@@ -71,8 +71,3 @@ def findClickPositions(needle_img_path, haystack_img, threshold=0.25, debug_mode
         #cv.imwrite('result_click_point.jpg', haystack_img)
 
     return points
-
-
-
-pontos = findClickPositions('img/needle5.png','img/palheiro2.png', threshold=0.3, debug_mode='points')
-print(pontos)
