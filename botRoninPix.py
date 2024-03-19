@@ -11,7 +11,8 @@ from selenium.webdriver.support import expected_conditions as EC
 MNEMONIC = 'security curve swallow few tilt attract donor tuition matter place spoon major'
 PASSWORD = '11111111'
 
-extensao = "C:/Users/Acer/Documents/Progamacao/pixbot/Ronin-Wallet.crx"
+#extensao = "C:/Users/Acer/Documents/Progamacao/pixbot/Ronin-Wallet.crx"
+extensao = 'C:/Users/Rodrigo/Documents/bot/pix/pixbot/Ronin-Wallet.crx'
 
 playFree ='/html/body/div[1]/div[1]/div/a/strong'
 

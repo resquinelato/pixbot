@@ -10,7 +10,7 @@ from vision import Vision
 
 # initialize the WindowCapture class
 # adiciona o nome da janela em str para ser capturada ou apenas deixa None para capturar tela toda
-wincap = WindowCapture('Documentos')
+wincap = WindowCapture('Início')
 # initialize Vision Class
 vision_dir = Vision('img/dir.png')
 
