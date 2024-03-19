@@ -6,7 +6,7 @@ from windowcapture import WindowCapture
 
 
 # initialize the WindowCapture class
-wincap = WindowCapture('Ravendawn')
+wincap = WindowCapture('Explorador de Arquivos')
 
 loop_time = time()
 while(True):
@@ -26,7 +26,7 @@ while(True):
     loop_time = time()
 
     # press 'q' with the output window focused to exit.
-    # waits 1 ms every loop to process key presses
+    # waits 1 ms every loop to process key pressesgi
     if cv.waitKey(1) == ord('q'):
         cv.destroyAllWindows()
         break
