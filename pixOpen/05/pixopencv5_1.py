@@ -1,3 +1,5 @@
+#teste para jogo juns  and bottle
+
 import cv2 as cv
 import numpy as np
 import os
@@ -10,9 +12,14 @@ from vision import Vision
 
 # initialize the WindowCapture class
 # adiciona o nome da janela em str para ser capturada ou apenas deixa None para capturar tela toda
-wincap = WindowCapture('Documentos')
+wincap = WindowCapture()
 # initialize Vision Class
 vision_dir = Vision('img/dir.png')
+
+#https://gamesnacks.com/games/aktestgunsandbottles
+wincap = WindowCapture()
+# initialize Vision Class
+vision_gunsbottle = Vision('img/bottle.png')
 
 
 loop_time = time()
@@ -24,7 +31,8 @@ while(True):
     screenshot = np.array(screenshot)
 
     #mostra a imagem preocessada
-    points = vision_dir.find(screenshot, 0.5 , 'rectangles')
+    #points = vision_dir.find(screenshot, 0.5 , 'rectangles')
+    points = vision_gunsbottle.find(screenshot, 0.7 , 'points')
 
     # msotra o FPS de execução (pode ser melhorado)
     print('FPS {}'.format(1 / (time() - loop_time)))
