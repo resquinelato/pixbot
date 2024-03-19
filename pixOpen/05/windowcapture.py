@@ -28,7 +28,7 @@ class WindowCapture:
             self.w = window_rect[2] - window_rect[0]
             self.h = window_rect[3] - window_rect[1]
         else:
-            #corrige erro full screen mode
+            #corrige erro full screen mode(precisas preencher com a resolução total da tela)
             self.w = 1366
             self.h = 768
 
