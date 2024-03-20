@@ -11,11 +11,12 @@ from selenium import webdriver
 import base64
 
 browser = webdriver.Chrome()
+#browser.get('https://www.google.com.br')
 browser.get('https://gamesnacks.com/games/aktestgunsandbottles')
 
 # initialize Vision Class
 #vision_dir = Vision('C:/Users/Rodrigo/Documents/bot/pix/pixbot/img/google.png')
-vision_gunsbottle = Vision('img/bottle.png')
+#vision_gunsbottle = Vision('img/bottle.png')
 
 
 loop_time = time()
@@ -25,19 +26,16 @@ while(True):
     screenshotpng = browser.get_screenshot_as_png() #metodo do selenium
     imagem_pil = Image.open(io.BytesIO(screenshotpng))
     screenshot = np.array(imagem_pil)
-    screenshot = cv.cvtColor(screenshot, cv.IMREAD_GRAYSCALE)
-    #screenshot = wincap.get_screenshot()
-    #browser.get_screenshot_as_file('gogletTab.png')
+    #screenshot = cv.cvtColor(screenshot, cv.IMREAD_UNCHANGED)
+    #screenshot = cv.cvtColor(screenshot, cv.COLOR_RGB2BGR)
+    screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
 
     screenshot = np.array(screenshot)
 
-    # gera a imagem capturada pelo browser
-    #cv.imshow('Computer Vision', screenshot)
-
-    #points = vision_gunsbottle.find(screenshot, 0.7 , 'points')
-
     #mostra a imagem preocessada
-    findClickPositions('img/google.png',screenshot, 0.5 , 'rectangles')
+    #cv.imshow('Computer Vision', screenshot)
+    #findClickPositions('/home/re/Documents/program/pixbot/img/googleG.png',screenshot, 0.5 , 'rectangles')
+    findClickPositions('/home/re/Documents/program/pixbot/img/bottle.png',screenshot, 0.5 , 'rectangles')
 
     # msotra o FPS de execução (pode ser melhorado)
     print('FPS {}'.format(1 / (time() - loop_time)))
