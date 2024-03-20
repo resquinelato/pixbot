@@ -16,7 +16,7 @@ browser.get('https://gamesnacks.com/games/aktestgunsandbottles')
 
 # initialize Vision Class
 #vision_dir = Vision('C:/Users/Rodrigo/Documents/bot/pix/pixbot/img/google.png')
-#vision_gunsbottle = Vision('img/bottle.png')
+vision_gunsbottle = Vision('img/bottle2.png')
 
 
 loop_time = time()
@@ -34,8 +34,8 @@ while(True):
 
     #mostra a imagem preocessada
     #cv.imshow('Computer Vision', screenshot)
-    #findClickPositions('/home/re/Documents/program/pixbot/img/googleG.png',screenshot, 0.5 , 'rectangles')
-    findClickPositions('/home/re/Documents/program/pixbot/img/bottle.png',screenshot, 0.5 , 'rectangles')
+    #findClickPositions('img/bottle2.png',screenshot, 0.5 , 'rectangles')
+    points = vision_gunsbottle.find(screenshot, 0.7 , 'points')
 
     # msotra o FPS de execução (pode ser melhorado)
     print('FPS {}'.format(1 / (time() - loop_time)))

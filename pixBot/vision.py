@@ -14,8 +14,8 @@ class Vision:
     #construtor
     def __init__(self, needle_img_path, method=cv.TM_CCOEFF_NORMED):
         #metodo que a foto será tratada
-        #self.needle_img = cv.imread(needle_img_path, cv.IMREAD_GRAYSCALE)
-        self.needle_img = cv.imread(needle_img_path, cv.IMREAD_UNCHANGED)
+        self.needle_img = cv.imread(needle_img_path, cv.IMREAD_GRAYSCALE)
+        #self.needle_img = cv.imread(needle_img_path, cv.IMREAD_UNCHANGED)
 
         #salva as dimensoes das imgs needle
         self.needle_w = self.needle_img.shape[1]

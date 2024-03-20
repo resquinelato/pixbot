@@ -12,8 +12,9 @@ def findClickPositions(needle_img_path, haystack_img, threshold=0.25, debug_mode
     #metodo que a foto será tratada
     #imagem_pil = Image.open(io.BytesIO(needle_img_path))
     #needle_img = np.array(imagem_pil)
+    #needle_img = cv.imread(needle_img_path, cv.IMREAD_GRAYSCALE)
     needle_img = cv.imread(needle_img_path, cv.IMREAD_GRAYSCALE)
-    
+
     needle_w = needle_img.shape[1]
     needle_h = needle_img.shape[0]
 
