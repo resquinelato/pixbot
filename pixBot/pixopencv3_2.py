@@ -1,19 +1,16 @@
-#modelo de visao antigo sem classe
 import cv2 as cv
 import numpy as np
-from PIL import Image
-import io
+#import os
+#os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
 
+def findClickPositions(needle_img_path, haystack_img_path, threshold=0.25, debug_mode=None):
 
-def findClickPositions(needle_img_path, haystack_img, threshold=0.25, debug_mode=None):
-
-    #metodo que a foto será tratada
-    #imagem_pil = Image.open(io.BytesIO(needle_img_path))
-    #needle_img = np.array(imagem_pil)
+    #metodo que a foto será tyratada
+    haystack_img = cv.imread(haystack_img_path, cv.IMREAD_GRAYSCALE)
     needle_img = cv.imread(needle_img_path, cv.IMREAD_GRAYSCALE)
-    
+
     needle_w = needle_img.shape[1]
     needle_h = needle_img.shape[0]
 
@@ -69,9 +66,14 @@ def findClickPositions(needle_img_path, haystack_img, threshold=0.25, debug_mode
                               color=marker_color, markerType=marker_type, 
                               markerSize=40, thickness=2)
 
-    if debug_mode:
-        cv.imshow('Matches', haystack_img)
-        #cv.waitKey()
-        #cv.imwrite('result_click_point.jpg', haystack_img)
+        if debug_mode:
+            cv.imshow('Matches', haystack_img)
+            cv.waitKey()
+            #cv.imwrite('result_click_point.jpg', haystack_img)
 
     return points
+
+
+
+pontos = findClickPositions('img/googleG.png','img/googleTab.png', threshold=0.3, debug_mode='points')
+print(pontos)
