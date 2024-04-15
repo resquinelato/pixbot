@@ -1,24 +1,12 @@
-#funcionando muito bem ao capturar a tela com cv.
 import cv2 as cv
 import numpy as np
 import os
+from time import time
 from vision import Vision
-from visionOld import findClickPositions
 from PIL import Image
 import io
-import base64
-
-import json
-import time
-from time import time, sleep
-
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import Select, WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+import base64
 
 browser = webdriver.Chrome()
 #browser.get('https://www.google.com.br')
@@ -36,6 +24,8 @@ while(True):
     screenshotpng = browser.get_screenshot_as_png() #metodo do selenium
     imagem_pil = Image.open(io.BytesIO(screenshotpng))
     screenshot = np.array(imagem_pil)
+    #screenshot = cv.cvtColor(screenshot, cv.IMREAD_UNCHANGED)
+    #screenshot = cv.cvtColor(screenshot, cv.COLOR_RGB2BGR)
     screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
 
     screenshot = np.array(screenshot)
@@ -44,12 +34,6 @@ while(True):
     #cv.imshow('Computer Vision', screenshot)
     #findClickPositions('img/bottle2.png',screenshot, 0.5 , 'rectangles')
     points = vision_gunsbottle.find(screenshot, 0.7 , 'points')
-    cv.waitKey(1)
-
-    #sleep(8)
-    WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.XPATH,  '/html/body/c-wiz/div/div/div[2]/div/div[2]/section/div/button/span[3]'))).click() 
-    #sleep(8) 
-    #WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/c-wiz/div/div/div[2]/div/header/div/div[3]/div/button/div'))).click()
 
     # msotra o FPS de execução (pode ser melhorado)
     print('FPS {}'.format(1 / (time() - loop_time)))
